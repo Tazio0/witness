@@ -1,84 +1,65 @@
 # Witness 👁️
-> Community safety reporting for South Africa
 
-Witness is a mobile app that lets South Africans report crimes, accidents, fires and hazards in real time. Incidents are pinned on a live map so people can see what's happening around them and stay safe on their daily commute.
-
----
-
-## The problem
-South Africans have no accessible, real-time tool to warn each other about dangers in their area. WhatsApp groups exist but they're scattered, unverified and hard to act on quickly.
-
-## The solution
-A map-based reporting app where the community is the sensor network. Reports are verified by crowd consensus before they appear — keeping the map trustworthy.
+**Know what's happening around you. Before it's too late.**
 
 ---
 
-## Features
-- 📍 Live incident map powered by OpenStreetMap
-- 🚨 Report crimes, accidents, fires, hazards and more
-- ✅ Crowd verification system — incidents need multiple confirmations before going live
-- ⏱️ Reports expire automatically after 24 hours
-- 🔒 Secure auth with JWT tokens
-- 📱 Android-first (Play Store)
+I've been robbed. I've seen news articles of innocent people caught in crossfire from stray bullets. I've watched South Africans go about their day completely unaware of what's happening two streets away from them.
+
+We don't have a way to warn each other. Not really. WhatsApp groups are scattered, slow and full of noise. By the time a warning reaches you, it's already too late.
+
+Witness is my attempt to change that.
 
 ---
 
-## Tech stack
-| Layer | Technology |
-|-------|-----------|
-| Mobile | Flutter (Dart) |
+## What it is
+
+A community safety app for South Africa. Open it and you see a live map of your area — crimes, accidents, fires, hazards — reported by people around you in real time. See something? Report it in seconds. Stay home because someone warned you there's danger outside. Take a different route because Witness flagged an incident on your usual road.
+
+A lot of South Africans are afraid to speak up. Witness gives them a safe, anonymous way to do it — and makes sure that warning reaches the people who need it.
+
+---
+
+## How it keeps reports trustworthy
+
+Anyone can submit a report. But it won't show on the map until multiple people in the area independently confirm it. No single person can flood the map with fake incidents. The community verifies itself.
+
+---
+
+## Built with
+
+| | |
+|--|--|
+| Mobile | Flutter |
 | Backend | Python + FastAPI |
+| Maps | OpenStreetMap |
 | Database | SQLite → PostgreSQL |
-| Maps | OpenStreetMap (flutter_map) |
 | Auth | JWT + bcrypt |
 | Hosting | Railway.app |
 
 ---
 
-## Getting started
+## Status
 
-### Backend
-```bash
-cd backend
-python3.12 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-API docs available at `http://localhost:8000/docs`
+Actively in development. Backend API complete. Mobile app in progress.
 
-### Flutter
-```bash
-cd flutter
-flutter pub get
-flutter run
-```
-
----
-
-## API endpoints
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /auth/register | Create account |
-| POST | /auth/login | Login, returns JWT |
-| POST | /reports/ | Submit incident |
-| GET | /reports/map | Fetch verified incidents near location |
-| POST | /reports/{id}/vote | Confirm an incident |
-| GET | /reports/categories | List incident types |
-
----
-
-## Roadmap
-- [x] Backend API with auth and reporting
-- [x] SQLite database with threshold verification
-- [ ] Flutter map screen with live incident pins
-- [ ] Android app on Play Store
-- [ ] Push notifications
+**Roadmap**
+- [x] Core API — auth, reporting, crowd verification
+- [ ] Flutter mobile app
+- [ ] Android — Play Store
+- [ ] Push notifications for nearby incidents
 - [ ] Neighbourhood communities
-- [ ] Authority alert system
+- [ ] Direct alerts to authorities for high-severity incidents
 - [ ] National expansion
 
 ---
 
-## Licence
-MIT © 2026 Tazio Petersen
+## Why I'm building this
+
+I'm a software development student at WeThinkCode_ in Cape Town. This is my flagship project — built because I believe technology should solve real problems for real people, not just look good on a slide deck.
+
+South Africa needs this. So I'm building it.
+
+---
+
+*MIT Licence © 2026 Tazio Petersen*
