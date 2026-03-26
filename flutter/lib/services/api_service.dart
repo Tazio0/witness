@@ -5,8 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ApiService {
   // TODO: change this to your Railway.app URL once deployed
   // For local testing on your phone, use your PC's local network IP e.g. http://192.168.1.x:8000
-  static const String baseUrl = 'http://10.0.2.2:8000'; // 10.0.2.2 = localhost on Android emulator
-
+  static const String baseUrl = 'http://127.0.0.1:8000';
   // --- Auth helpers ---
 
   static Future<String?> getToken() async {
